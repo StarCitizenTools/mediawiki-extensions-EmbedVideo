@@ -48,6 +48,13 @@ class EmbedVideoHooks {
 	static private $container = false;
 
 	/**
+	 * URLs for Content Security Policy
+	 *
+	 * @var array
+	 */
+	static private $cspUrls = [];
+
+	/**
 	 * Valid Arguments for the parseEV function hook.
 	 *
 	 * @var array
@@ -110,6 +117,24 @@ class EmbedVideoHooks {
 			$wgFileExtensions[] = 'ogv';
 			$wgFileExtensions[] = 'wav';
 			$wgFileExtensions[] = 'webm';
+		}
+	}
+
+	/**
+	 * Sets up this extension's outputpage functions.
+	 *
+	 * @access public
+	 * @param OutputPage $out
+	 * @param Skin $skin
+	 * @return void
+	 */
+	public static function onBeforePageDisplay( OutputPage $out, Skin $skin ) { 
+		// add Content Security Policies
+		if (self::$cspUrls()) {
+			$csp = $out->getCSP();
+			foreach (self::$cspUrls() as $src) {
+				$csp->addDefaultSrc( $src );
+			}
 		}
 	}
 
@@ -624,15 +649,11 @@ class EmbedVideoHooks {
 			$out = $parser->getOutput();
 			$out->addModules('ext.embedVideo');
 			$out->addModuleStyles('ext.embedVideo.styles');
+		}
 
-			// add Content Security Policies
-			if (self::$service->getCSPUrls()) {
-				$csp = $out->getCSP();
-
-				foreach (self::$service->getCSPUrls() as $src) {
-					$csp->addDefaultSrc( $src );
-				}
-			}
+		// make CSP urls accessible by outputpage
+		if (self::$service->getCSPUrls()) {
+			self::setCSPUrls(self::$service->getCSPUrls());
 		}
 
 		return [
@@ -824,5 +845,16 @@ class EmbedVideoHooks {
 			'noparse' => true,
 			'isHTML' => true
 		];
+	}
+
+	/**
+	 * Set the CSP urls.
+	 *
+	 * @access private
+	 * @param array
+	 * @return void
+	 */
+	private static function setCSPUrls( $urls ) {
+		self::$cspUrls = $urls;
 	}
 }
