@@ -471,7 +471,7 @@ class VideoService {
 				'https'	=> 'http://www.youtube.com/oembed?scheme=https&url=%1$s&width=%2$d&maxwidth=%2$d'
 			],
 			'csp_url'		=> [
-				'https://youtube.com'
+				'https://www.youtube.com'
 			]
 		],
 		'youtubeplaylist' => [
@@ -486,7 +486,7 @@ class VideoService {
 				'#^([\d\w-]+)$#is'
 			],
 			'csp_url'		=> [
-				'https://youtube.com'
+				'https://www.youtube.com'
 			]
 		],
 		'youtubevideolist' => [
@@ -501,7 +501,7 @@ class VideoService {
 				'#^([\d\w-]+)$#is'
 			],
 			'csp_url'		=> [
-				'https://youtube.com'
+				'https://www.youtube.com'
 			]
 		],
 		'youku' => [
