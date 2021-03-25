@@ -624,6 +624,15 @@ class EmbedVideoHooks {
 			$out = $parser->getOutput();
 			$out->addModules('ext.embedVideo');
 			$out->addModuleStyles('ext.embedVideo.styles');
+
+			// add Content Security Policies
+			if (self::$service->getCSPUrls()) {
+				$csp = $out->getCSP();
+
+				foreach (self::$service->getCSPUrls() as $src) {
+					$csp->addDefaultSrc( $src );
+				}
+			}
 		}
 
 		return [

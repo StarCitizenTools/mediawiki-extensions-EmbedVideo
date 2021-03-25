@@ -469,6 +469,9 @@ class VideoService {
 			'oembed'		=> [
 				'http'	=> 'http://www.youtube.com/oembed?url=%1$s&width=%2$d&maxwidth=%2$d',
 				'https'	=> 'http://www.youtube.com/oembed?scheme=https&url=%1$s&width=%2$d&maxwidth=%2$d'
+			],
+			'csp_url'		=> [
+				'https://youtube.com'
 			]
 		],
 		'youtubeplaylist' => [
@@ -481,6 +484,9 @@ class VideoService {
 			],
 			'id_regex'		=> [
 				'#^([\d\w-]+)$#is'
+			],
+			'csp_url'		=> [
+				'https://youtube.com'
 			]
 		],
 		'youtubevideolist' => [
@@ -493,6 +499,9 @@ class VideoService {
 			],
 			'id_regex'		=> [
 				'#^([\d\w-]+)$#is'
+			],
+			'csp_url'		=> [
+				'https://youtube.com'
 			]
 		],
 		'youku' => [
@@ -955,5 +964,15 @@ class VideoService {
 	 */
 	public function getDefaultRatio() {
 		return ($this->service['default_ratio'] > 0 ? $this->service['default_ratio'] : false);
+	}
+
+	/**
+	 * Get Content Security Policy URLs
+	 *
+	 * @access public
+	 * @return boolean
+	 */
+	public function getCSPUrls() {
+		return $this->service['csp_url'];
 	}
 }
