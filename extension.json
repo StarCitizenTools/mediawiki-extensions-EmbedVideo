@@ -83,8 +83,8 @@
 		"FFprobeLocation": "/usr/bin/ffprobe"
 	},
 	"Hooks": {
-		"BeforePageDisplay": [
-			"EmbedVideoHooks::onBeforePageDisplay"
+		"OutputPageParserOutput": [
+			"EmbedVideoHooks::onOutputPageParserOutput"
 		],
 		"ParserFirstCallInit": [
 			"EmbedVideoHooks::onParserFirstCallInit"

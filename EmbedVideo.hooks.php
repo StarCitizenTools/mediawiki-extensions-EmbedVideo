@@ -125,10 +125,10 @@ class EmbedVideoHooks {
 	 *
 	 * @access public
 	 * @param OutputPage $out
-	 * @param Skin $skin
+	 * @param ParserOutput $parserOutput
 	 * @return void
 	 */
-	public static function onBeforePageDisplay( OutputPage $out, Skin $skin ) { 
+	public static function onOutputPageParserOutput( OutputPage $out, ParserOutput $parserOutput ) { 
 		// add Content Security Policies
 		if (self::$cspUrls) {
 			$csp = $out->getCSP();
