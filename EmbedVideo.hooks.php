@@ -130,9 +130,9 @@ class EmbedVideoHooks {
 	 */
 	public static function onBeforePageDisplay( OutputPage $out, Skin $skin ) { 
 		// add Content Security Policies
-		if (self::$cspUrls()) {
+		if (self::$cspUrls) {
 			$csp = $out->getCSP();
-			foreach (self::$cspUrls() as $src) {
+			foreach (self::$cspUrls as $src) {
 				$csp->addDefaultSrc( $src );
 			}
 		}
