@@ -455,7 +455,7 @@ class VideoService {
 			]
 		],
 		'youtube' => [
-			'embed'			=> '<iframe loading="lazy" title="%4$s" src="//www.youtube.com/embed/%1$s?%5$s" width="%2$d" height="%3$d" frameborder="0" allowfullscreen="true"></iframe>',
+			'embed'			=> '<iframe loading="lazy" title="%4$s" src="//www.youtube-nocookie.com/embed/%1$s?%5$s" width="%2$d" height="%3$d" frameborder="0" allowfullscreen="true"></iframe>',
 			'default_width'	=> 640,
 			'default_ratio'	=> 1.77777777777778, // (16 / 9)
 			'https_enabled'	=> true,
@@ -467,15 +467,15 @@ class VideoService {
 				'#^([\d\w-]+)$#is'
 			],
 			'oembed'		=> [
-				'http'	=> 'http://www.youtube.com/oembed?url=%1$s&width=%2$d&maxwidth=%2$d',
-				'https'	=> 'http://www.youtube.com/oembed?scheme=https&url=%1$s&width=%2$d&maxwidth=%2$d'
+				'http'	=> 'http://www.youtube-nocookie.com/oembed?url=%1$s&width=%2$d&maxwidth=%2$d',
+				'https'	=> 'http://www.youtube-nocookie.com/oembed?scheme=https&url=%1$s&width=%2$d&maxwidth=%2$d'
 			],
 			'csp_url'		=> [
 				'https://www.youtube.com'
 			]
 		],
 		'youtubeplaylist' => [
-			'embed'			=> '<iframe loading="lazy" title="%4$s" src="//www.youtube.com/embed/videoseries?list=%1$s&%5$s" width="%2$d" height="%3$d" frameborder="0" allowfullscreen="true"></iframe>',
+			'embed'			=> '<iframe loading="lazy" title="%4$s" src="//www.youtube-nocookie.com/embed/videoseries?list=%1$s&%5$s" width="%2$d" height="%3$d" frameborder="0" allowfullscreen="true"></iframe>',
 			'default_width'	=> 640,
 			'default_ratio'	=> 1.77777777777778, // (16 / 9)
 			'https_enabled'	=> true,
@@ -490,7 +490,7 @@ class VideoService {
 			]
 		],
 		'youtubevideolist' => [
-			'embed'			=> '<iframe loading="lazy" title="%4$s" src="//www.youtube.com/embed/%1$s?%5$s" width="%2$d" height="%3$d" frameborder="0" allowfullscreen="true"></iframe>',
+			'embed'			=> '<iframe loading="lazy" title="%4$s" src="//www.youtube-nocookie.com/embed/%1$s?%5$s" width="%2$d" height="%3$d" frameborder="0" allowfullscreen="true"></iframe>',
 			'default_width'	=> 640,
 			'default_ratio'	=> 1.77777777777778, // (16 / 9)
 			'https_enabled'	=> true,
